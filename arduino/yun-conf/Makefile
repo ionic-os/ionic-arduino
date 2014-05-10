@@ -43,7 +43,7 @@ define Package/yun-conf/install
 	$(INSTALL_CONF) ./files/etc/config/arduino $(1)/etc/config/
 	#$(INSTALL_CONF) ./files/etc/config/dhcp $(1)/etc/config/dhcp.1
 
-	$(INSTALL_DATA) ./files/etc/arduino/ATmega*.hex $(1)/etc/arduino/
+	$(INSTALL_DATA) ./files/etc/arduino/Caterina-Leonardo.hex $(1)/etc/arduino/
 	$(INSTALL_CONF) ./files/etc/arduino/openwrt-yun-release $(1)/etc/arduino/
 	sed -i "s/DATE/`date`/g" $(1)/etc/arduino/openwrt-yun-release
 	$(INSTALL_CONF) ./files/etc/arduino/gpg_gen_key_batch $(1)/etc/arduino/
