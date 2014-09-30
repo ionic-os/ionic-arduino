@@ -37,11 +37,11 @@ endef
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); \
 	CC="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-gcc" \
-	CXX="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	CXX="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++ -Wno-unused-local-typedefs" \
 	AR="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-ar" \
 	RANLIB="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-ranlib" \
-	LD="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
-	LINK="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	LD="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++ -Wno-unused-local-typedefs" \
+	LINK="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++ -Wno-unused-local-typedefs" \
 	PATH="/usr/bin/:$(PATH)" \
 	GYPFLAGS="-Dv8_use_mips_abi_hardfloat=false -Dv8_can_use_fpu_instructions=false" \
 	LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
