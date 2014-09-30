@@ -1,0 +1,11 @@
+--- a/build/standalone.gypi
++++ b/build/standalone.gypi
+@@ -93,7 +93,7 @@
+     ['OS=="linux" or OS=="freebsd" or OS=="openbsd" or OS=="solaris" \
+        or OS=="netbsd"', {
+       'target_defaults': {
+-        'cflags': [ '-Wall', '<(werror)', '-W', '-Wno-unused-parameter',
++        'cflags': [ '-Wall', '<(werror)', '-W', '-Wno-unused-local-typedefs', '-Wno-unused-parameter',
+                     '-Wnon-virtual-dtor', '-pthread', '-fno-rtti',
+                     '-fno-exceptions', '-pedantic' ],
+         'ldflags': [ '-pthread', ],

@@ -40,13 +40,14 @@ endef
 
 define Build/Compile
 	CC="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-gcc" \
-	CXX="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	CXX="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++ -Wno-unused-local-typedefs" \
 	AR="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-ar" \
 	RANLIB="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-ranlib" \
-	LINK="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
-	LD="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	LINK="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++ -Wno-unused-local-typedefs" \
+	LD="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++ -Wno-unused-local-typedefs" \
 	PATH="/usr/bin/:$(PATH)" \
 	GYPFLAGS="-Dv8_use_mips_abi_hardfloat=false -Dv8_can_use_fpu_instructions=false" \
+	CFLAGS="$(CFLAGS) -Wno-unused-local-typedefs" \
 	LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) DESTDIR="$(PKG_INSTALL_DIR)" mips.release library=shared snapshot=off
 endef
